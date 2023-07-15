@@ -1,9 +1,18 @@
 # Function Plotter
----
+
 **Function Plotter is a Python application built with PySide2 and Matplotlib that allows users to plot mathematical functions (e.g., 5*x^3 + 2*x) and visualize the results on a graphical interface.**
 
+<table>
+  <tr>
+    <td><img src="images/demo.png" alt="Demo"></td>
+    <td><img src="images/trigno.png" alt="Trigno"></td>
+  </tr>
+</table>
+
+
+
 ## Installation
----
+
 1. Clone the repository to your local machine:
 ```
 git clone https://github.com/youssefkhaled08/Function-Plotter.git
@@ -25,7 +34,9 @@ virtualenv venv
    ```
 
 ## Usage
----
+
+![Usage](images/demo1.png)
+
 1. Run the `Function Plotter.py` file:
 
    ```
