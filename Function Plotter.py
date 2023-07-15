@@ -1,10 +1,12 @@
 import re
 import sys
 import numpy as np
+import sympy as sp
 from PySide2.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QPushButton, QVBoxLayout, QWidget, QMessageBox,QGridLayout
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from PySide2.QtGui import QIcon
+from PySide2.QtCore import Qt
 
 
 def main():
@@ -21,6 +23,8 @@ class MainWindow(QMainWindow):
         # Setting the title and the icon of the app.
         self.setWindowTitle("Function Plotter")
         self.setWindowIcon(QIcon("icon.png"))
+        self.resize(900, 600)
+        self.setWindowFlags(self.windowFlags() & ~Qt.WindowMaximizeButtonHint)
 
         # Creating the main container (widget) and setting it as the main window's central widget.
         containerWidget = QWidget()
@@ -80,10 +84,16 @@ class MainWindow(QMainWindow):
 
         # Plotting the function
         try:
-            y = eval(function)
+            expr = sp.sympify(function)
+
+        # Create a lambda function to evaluate the expression
+            f = sp.lambdify(sp.symbols('x'), expr)
+
+        # Evaluate the function for the given x values
+            y = f(x)
         except Exception as e:
+        # Handle the exception
             return
-        
         axes = self.figure.add_subplot(111)
         axes.plot(x, y)
         axes.grid(True)
@@ -112,7 +122,7 @@ class MainWindow(QMainWindow):
         function = function.replace("^", "**")
 
         # Using regular expressions to check if the function (f(x)) contains unsupported operators.
-        regex = re.compile('[^0-9xX\+\-\*\/\^]+')
+        regex = re.compile('[^0-9xX\+\-\*\/\^sincoletcg\(\)]+')
         match = regex.search(function)
         if match:
             unsupportedOperator = match.group()
