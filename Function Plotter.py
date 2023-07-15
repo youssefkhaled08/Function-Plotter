@@ -61,7 +61,78 @@ class MainWindow(QMainWindow):
 
 
     def plot(self):
-        pass        
+        # Clearing the previous plot.
+        self.figure.clear()
 
+        # Checking if the user provided all required inputs.
+        self.validateUserInputs()
+
+        # Validating the user-entered function, min value, and max value of X.
+        function = self.validateFunction(self.txtEquation.text())
+        minValue = self.validateUserInput(self.txtMinimumX.text())
+        maxValue = self.validateUserInput(self.txtMaximumX.text())
+
+        # Generating x values between min and max.
+        try:
+            x = np.linspace(minValue, maxValue, 100)
+        except Exception as e:
+            return
+
+        # Plotting the function
+        try:
+            y = eval(function)
+        except Exception as e:
+            return
+        
+        axes = self.figure.add_subplot(111)
+        axes.plot(x, y)
+        axes.grid(True)
+        
+        self.canvas.draw()
+
+
+    def validateUserInputs(self):
+        '''Checks if the user provided all required inputs, and if not shows a MessageBox with the specific field not provided.'''
+
+        if not self.txtEquation.text():
+            QMessageBox.critical(self, "Missing Input", f"Missing Input: Please provide the function you want to plot.")
+        elif not self.txtMinimumX.text():
+            QMessageBox.critical(self, "Missing Input", f"Missing Input: Please provide the minimum value of X.")
+        elif not self.txtMaximumX.text():
+            QMessageBox.critical(self, "Missing Input", f"Missing Input: Please provide the maximum value of X.")
+        
+        return
+
+
+    def validateFunction(self, function):
+        # Removing whitespaces from the funcion (f(x)).
+        function = "".join(function.split())
+        
+        # Replacing (**) with (^) to support this format (x^2).
+        function = function.replace("^", "**")
+
+        # Using regular expressions to check if the function (f(x)) contains unsupported operators.
+        regex = re.compile('[^0-9xX\+\-\*\/\^]+')
+        match = regex.search(function)
+        if match:
+            unsupportedOperator = match.group()
+            QMessageBox.critical(self, "Invalid Function", f"Invalid function. Unsupported operator found: {unsupportedOperator}")
+        else:
+            return function
+
+
+    def validateUserInput(self,value):
+        if not value:
+            return
+
+        try:
+            value = float(value)
+            return value
+        except Exception as e:
+            QMessageBox.critical(self, "Invalid Input", "Invalid Input: Please provide a numbers for X not letters.")
+            return
+
+        
 if __name__ == "__main__":
   main()
+        
