@@ -9,7 +9,12 @@
   </tr>
 </table>
 
+## Table of Contents
 
+- [Function Plotter](#function-plotter)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Used Technologies](#used-technologies)
 
 ## Installation
 
@@ -52,3 +57,9 @@ virtualenv venv
 5. Click the "Plot" button to generate the plot.
 
 6. The graph will be displayed in the application window.
+
+## Used Techlologies
+
+- IDE: [VSCode](https://code.visualstudio.com/)
+- GUI: [Pyside2](https://pypi.org/project/PySide2/#:~:text=PySide2%20is%20the%20official%20Python,and%20an%20open%20design%20process.)
+- Visualization Tool (used for plotting): [Matplotlib](https://pypi.org/project/PySide2/#:~:text=PySide2%20is%20the%20official%20Python,and%20an%20open%20design%20process.)
