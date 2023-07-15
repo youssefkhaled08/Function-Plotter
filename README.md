@@ -16,6 +16,7 @@
   - [Usage](#usage)
   - [Used Technologies](#used-technologies)
 
+
 ## Installation
 
 1. Clone the repository to your local machine:
@@ -58,8 +59,8 @@ virtualenv venv
 
 6. The graph will be displayed in the application window.
 
-## Used Techlologies
+## Used Technologies
 
 - IDE: [VSCode](https://code.visualstudio.com/)
-- GUI: [Pyside2](https://pypi.org/project/PySide2/#:~:text=PySide2%20is%20the%20official%20Python,and%20an%20open%20design%20process.)
-- Visualization Tool (used for plotting): [Matplotlib](https://pypi.org/project/PySide2/#:~:text=PySide2%20is%20the%20official%20Python,and%20an%20open%20design%20process.)
+- GUI: [PySide2](https://pypi.org/project/PySide2/)
+- Visualization Tool (used for plotting): [Matplotlib](https://matplotlib.org/)
