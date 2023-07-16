@@ -22,7 +22,7 @@ class MainWindow(QMainWindow):
 
         # Setting the title and the icon of the app.
         self.setWindowTitle("Function Plotter")
-        self.setWindowIcon(QIcon("icon.png"))
+        self.setWindowIcon(QIcon("images/icon.png"))
         self.resize(900, 600)
         self.setWindowFlags(self.windowFlags() & ~Qt.WindowMaximizeButtonHint)
 
