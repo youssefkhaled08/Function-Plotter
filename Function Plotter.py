@@ -139,7 +139,7 @@ class MainWindow(QMainWindow):
             value = float(value)
             return value
         except Exception as e:
-            QMessageBox.critical(self, "Invalid Input", "Invalid Input: Please provide a numbers for X not letters.")
+            QMessageBox.critical(self, "Invalid Input", "Invalid Input: Please provide a number for X not letters.")
             return
 
         
