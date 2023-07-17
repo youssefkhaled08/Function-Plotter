@@ -94,9 +94,13 @@ pip install -r requirements.txt
 3. **Third Layer**: The `validateUserInput` function cheks if the user provided valid inputs for the minimum and maxiumu values of X, and provides an error message box for any invalid value.
 
 ## Tests
+Used [Pytest](https://docs.pytest.org/en/7.4.x/) to perform end to end testing.
+![Positive Tests](images/test.png)
 
 ## Used Technologies
 
 - IDE: [VSCode](https://code.visualstudio.com/)
 - GUI: [PySide2](https://pypi.org/project/PySide2/)
 - Visualization Tool (used for plotting): [Matplotlib](https://matplotlib.org/)
+- Testing: [Pytest](https://docs.pytest.org/en/7.4.x/)
+---
