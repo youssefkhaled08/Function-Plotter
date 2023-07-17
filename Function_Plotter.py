@@ -122,7 +122,7 @@ class MainWindow(QMainWindow):
         function = function.replace("^", "**")
 
         # Using regular expressions to check if the function (f(x)) contains unsupported operators.
-        regex = re.compile('[^0-9xX\+\-\*\/\^sincoletcg\(\)]+')
+        regex = re.compile('[^0-9xX\\+\\-\\*\\/\\^sincoletcg\\(\\)]+')
         match = regex.search(function)
         if match:
             unsupportedOperator = match.group()
